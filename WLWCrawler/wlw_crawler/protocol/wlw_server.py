@@ -110,7 +110,7 @@ class WLWServerProtocolFactory(Factory):
                     .format(next_suffix_batch[0],
                      next_suffix_batch[-1], client_info["identifier"]), logging.INFO)
   
-  def gotRecord(self, itemLine, connection):
+  def gotItem(self, itemLine, connection):
     client_info = self._getClientInfoByConnection(connection)
     client_info["returned_item_messages"].append(itemLine)
     
@@ -136,8 +136,8 @@ class WLWServerProtocolFactory(Factory):
         " %(website)s);"
     returned_record_count = len(clientInfo["returned_item_messages"])
     logFromServer("{} records returned from client '{}' [{} suffixes were sent]. committing them..."\
-                  .format(returned_record_count, len(clientInfo["assigned_suffixes"]),
-                  clientInfo["identifier"]), logging.INFO)
+                  .format(returned_record_count, clientInfo["identifier"],
+                  len(clientInfo["assigned_suffixes"])), logging.INFO)
     try:
       for record_line in clientInfo["returned_item_messages"]:
         new_record = ClientToServerSignals.itemFromMessage(record_line)
