@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "wlw_client.py", line 19, in <module>
+    from wlw_crawler.protocol.common import ClientToServerSignals, ServerToClientSignals, SERVER_PORT
+ImportError: No module named wlw_crawler.protocol.common
