@@ -115,7 +115,7 @@ class WLWServerProtocolFactory(Factory):
     client_info["returned_item_messages"].append(itemLine)
     
   def _suffixRange(self):
-    batch_size = 10
+    batch_size = 1000
     cursor = self._db_connection.getCursor()
     cursor.execute("SELECT suffix FROM suffix WHERE crawled=FALSE")
     non_crawled_count = cursor.rowcount 

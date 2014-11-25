@@ -3,7 +3,8 @@ CREATE DATABASE wlw WITH ENCODING 'UTF-8';
 
 CREATE TABLE wlw (
     id serial PRIMARY KEY NOT NULL, 
-    company TEXT, address TEXT, email TEXT, fax TEXT, phone TEXT, website TEXT
+    company TEXT, address TEXT, email TEXT, fax TEXT, phone TEXT, website TEXT,
+    suffix INT
     );
   
 CREATE TABLE suffix (
